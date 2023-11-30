@@ -1,0 +1,52 @@
+/* InputUserInfo.css */
+.inputUserInfoContainer {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.inputUserInfoContainer h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.inputUserInfoContainer label {
+  display: block;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.inputUserInfoContainer input {
+  width: 200px;
+  padding: 7px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.inputUserInfoContainer input[type='ID'] {
+  border-color: #007bff;
+}
+
+.inputUserInfoContainer #submit {
+  width: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.inputUserInfoContainer #submit:hover {
+  background-color: #0056b3;
+}
+
+.inputUserInfoContainer #submit {
+  text-align: right;
+}

@@ -1,0 +1,19 @@
+{
+  "ports": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id":1,
+      "bady": "some comment",
+      "postid": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
