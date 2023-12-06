@@ -1,11 +1,11 @@
-import ReactDOM from 'react-dom/client';
-import Login from './components/Login';
-import React from 'react';
+import ReactDOM from "react-dom/client";
+import App from "./components/App";
+import React from "react";
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
   <React.StrictMode>
-    <Login />
+    <App />
   </React.StrictMode>
 );
