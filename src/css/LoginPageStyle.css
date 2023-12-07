@@ -9,19 +9,24 @@
   background-color: #fff;
 }
 
-.inputUserInfoContainer h1 {
+.LoginForm h1 {
   text-align: center;
   color: #333;
   margin-bottom: 20px;
 }
 
-.inputUserInfoContainer label {
+.LoginForm label {
+  padding: 20px;
+  max-width: 400px;
+  background-color: #666;
+  box-shadow: 0 2px 4px rgb(148, 9, 9);
   display: block;
-  margin-bottom: 10px;
+  margin: 0 auto;
   color: #666;
 }
 
-.inputUserInfoContainer input {
+.LoginForm input {
+  text-align: left;
   width: 200px;
   padding: 7px;
   margin-bottom: 20px;
@@ -29,11 +34,11 @@
   border-radius: 4px;
 }
 
-.inputUserInfoContainer input[type='ID'] {
+.LoginForm input[type="userID"] {
   border-color: #007bff;
 }
 
-.inputUserInfoContainer #submit {
+.LoginForm label button {
   width: auto;
   padding: 10px;
   border: none;
@@ -43,10 +48,6 @@
   cursor: pointer;
 }
 
-.inputUserInfoContainer #submit:hover {
+.LoginForm button:hover {
   background-color: #0056b3;
-}
-
-.inputUserInfoContainer #submit {
-  text-align: right;
 }
