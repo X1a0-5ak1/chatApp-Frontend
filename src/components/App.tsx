@@ -4,14 +4,14 @@ import LoginPage from "./LoginPage";
 import MainPage from "./MainPage";
 
 export default function App() {
-  const isAuthenticated = localStorage.getItem("token");
+  const isAuthenticated = sessionStorage.getItem("token");
 
   return (
     <Router>
       <Routes>
         {/*画面のスイッチ構成部分*/}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={isAuthenticated !== null ? <MainPage /> : <Navigate to="/login" />} />
+        <Route path="/home" element={isAuthenticated !== null ? <MainPage /> : <Navigate to="/login" />} />
         <Route path="/passwordreset" element={<></>} />
       </Routes>
     </Router>

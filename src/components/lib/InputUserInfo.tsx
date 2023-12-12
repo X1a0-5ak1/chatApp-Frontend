@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import '../../css/InputUserInfo.css';
+import '../../style/InputUserInfo.css';
 
 type InputUserInfoProps = {
   onSubmit: (userId: string, password: string) => void;
