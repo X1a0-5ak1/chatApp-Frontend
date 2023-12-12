@@ -44,7 +44,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 540px;
+  height: 98vh;
   background-size: 100%;
   background-image: url(https://images4.alphacoders.com/132/1321259.png); /* 背景色 */
 `;
