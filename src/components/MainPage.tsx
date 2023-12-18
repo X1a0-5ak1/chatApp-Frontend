@@ -5,7 +5,7 @@ export default function MainPage() {
   const navigate = useNavigate();
 
   const LogoutAction = () => {
-    sessionStorage.removeItem("token");
+    localStorage.clear();
     navigate("/login");
   };
 

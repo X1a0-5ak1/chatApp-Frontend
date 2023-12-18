@@ -4,7 +4,7 @@ import LoginPage from "./LoginPage";
 import MainPage from "./MainPage";
 
 export default function App() {
-  const isAuthenticated = sessionStorage.getItem("token");
+  const isAuthenticated = localStorage.getItem("token");
 
   return (
     <Router>

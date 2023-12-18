@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container,Form,InputUserInfo,PasswordResetLink,LoginButton } from "../style/LoginPageStyle";
+import { Container, Form, InputUserInfo, PasswordResetLink, LoginButton } from "../style/LoginPageStyle";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -12,7 +12,7 @@ export default function LoginPage() {
     if (username === "user" && password === "password") {
       console.log("ログイン成功");
       // 認証状態を保存する処理
-      sessionStorage.setItem("token", "sample_token");
+      localStorage.setItem("token", "sample_token");
       navigate("/home");
     } else {
       // 認証失敗
