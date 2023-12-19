@@ -5,7 +5,7 @@ export const InputUserInfo = styled.input`
   text-align: left;
   width: 200px;
   padding: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   border: 2px solid #007bff; /* 鮮やかなボーダー色 */
   border-radius: 8px; /* 角丸 */
   background-color: #f0f8ff; /* 明るい背景色 */
@@ -23,7 +23,30 @@ export const InputUserInfo = styled.input`
   }
 `;
 
-export const LoginButton = styled.button`
+export const InputAuthTempNum = styled.input`
+  text-align: left;
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #007bff; /* 鮮やかなボーダー色 */
+  border-radius: 8px; /* 角丸 */
+  background-color: #00bfff; /* 明るい背景色 */
+  text-decoration-color: #f0f8ff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 影の追加 */
+  display: flex;
+
+  &:focus {
+    border-color: #ff4500; /* フォーカス時にボーダー色を変更 */
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.6); /* フォーカス時に影を強調 */
+    outline: none; /* デフォルトのアウトラインを削除 */
+  }
+
+  &:hover {
+    background-color: #6495ed; /* ホバー時の背景色変更 */
+  }
+`;
+
+export const SubmitButton = styled.button`
   width: 210px;
   padding: 10px;
   margin-top: 10px;
@@ -49,7 +72,7 @@ export const Container = styled.div`
   background-image: url(https://images4.alphacoders.com/132/1321259.png); /* 背景色 */
 `;
 
-export const Form = styled.form`
+export const Form = styled.div`
   padding: 20px;
   background: white;
   border-radius: 8px;
@@ -57,22 +80,4 @@ export const Form = styled.form`
   text-align: center;
   align-items: center;
   justify-content: center;
-`;
-
-export const PasswordResetLink = styled.a`
-  max-width: 78px;
-  font-size: 8px;
-  color: blue;
-  display: flex;
-  text-decoration: underline;
-
-  &:hover {
-    color: red;
-  }
-`;
-
-export const ErrorMessages = styled.p`
-  font-size: 8px;
-  color: red;
-  display: flex;
 `;

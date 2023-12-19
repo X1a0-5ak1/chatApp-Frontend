@@ -1,52 +1,76 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Container, Form, InputUserInfo, PasswordResetLink, LoginButton } from "../style/LoginPageStyle";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useNavigate, Navigate } from "react-router-dom";
+import { Container, Form, InputUserInfo, PasswordResetLink, LoginButton, ErrorMessages } from "../style/LoginPageStyle";
+import { ReactNode, useState } from "react";
+
+type LoginForm = {
+  username: string;
+  password: string;
+};
 
 export default function LoginPage() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [errorMsg, setErrorMsg] = useState("");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<LoginForm>({
+    mode: "onChange",
+  });
 
-  const handleLogin = () => {
-    // ログイン認証ロジック
-    if (username === "user" && password === "password") {
-      console.log("ログイン成功");
-      // 認証状態を保存する処理
-      localStorage.setItem("token", "sample_token");
-      navigate("/home");
+  const onSubmit: SubmitHandler<LoginForm> = (data) => {
+    console.log(data);
+
+    if (data.username === "raft" && data.password === "raft1173") {
+      // ユーザー名パスワード仮認証
+      localStorage.setItem("token", "sample_token"); // トークン保存
+      loginSuccess();
     } else {
-      // 認証失敗
-      alert("Invalid credentials");
+      loginErrorMsg();
     }
+    reset();
+  };
+
+  const loginSuccess = () => {
+    navigate("/home");
+  };
+
+  const loginErrorMsg = () => {
+    setErrorMsg("ユーザー名またはパスワードが間違っています。");
   };
 
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <h2>Login</h2>
+        <ErrorMessages>{errorMsg}</ErrorMessages>
         <label>
           <InputUserInfo
-            type="userID"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type="text"
+            {...register("username", { required: "ユーザーIDを入力してください。" })}
             placeholder="example@raft-works.com"
           />
         </label>
+        <ErrorMessages>{errors.username?.message as ReactNode}</ErrorMessages>
         <label>
           <InputUserInfo
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            {...register("password", { required: "パスワードを入力してください。" })}
             placeholder="Enter Password"
           />
         </label>
+        <ErrorMessages>{errors.password?.message as ReactNode}</ErrorMessages>
         <PasswordResetLink
           onClick={() => {
-            navigate("/passwordreset");
+            return <Navigate to="/passwordreset" />;
           }}>
           Forgot Password...?
         </PasswordResetLink>
-        <LoginButton onClick={handleLogin}>Login</LoginButton>
+        <LoginButton type="submit" onSubmit={handleSubmit(onSubmit)}>
+          Login
+        </LoginButton>
       </Form>
     </Container>
   );
