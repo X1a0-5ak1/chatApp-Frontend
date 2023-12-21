@@ -1,19 +1,27 @@
 import React from "react";
-import { Routes, Route, Navigate, BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import MainPage from "./MainPage";
 import PassChange from "./PassChange";
+import PrivateRoute from "./PrivateRoute";
 
-export default function App() {
-  const loggedIn = null;
+const App = () => {
   return (
     <Router>
       <Routes>
-        {/*画面のスイッチ構成部分*/}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/home" element={loggedIn ? <MainPage /> : <Navigate to="/login" />} />
+        {/* ログイン状態が確認できる人のみ表示可能 */}
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute>
+              <MainPage />
+            </PrivateRoute>
+          }
+        />
         <Route path="/passwordreset" element={<PassChange />} />
       </Routes>
     </Router>
   );
-}
+};
+export default App;

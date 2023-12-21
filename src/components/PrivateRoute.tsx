@@ -1,11 +1,16 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import { useAuth } from "./Auth/AuthProvider";
 
-type Routeprops = {
-  components: React.ReactNode;
-  redirect: string;
+const PrivateRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
+  const { isLoggedIn } = useAuth();
+  let location = useLocation();
+
+  if (!isLoggedIn) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  return children;
 };
 
-export const RouteAuthGuard: React.FC<Routeprops> = (props) => {
-  const searchToken = 
-}
+export default PrivateRoute;
